@@ -2,7 +2,7 @@
 UNIX-Assignment Workflow
 
 
-Student name: Ching-Yi Liao (Jin)
+Student name: Ching-Yi Liao
 
 Student number: 152455327
 
