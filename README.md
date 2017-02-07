@@ -63,7 +63,7 @@ Student number: 152455327
 
 ## 1.	Data extraction and cut unnecessary columns
 
-### Genetype data
+### Genotype data
 
 #### For maize (Group = ZMMIL, ZMMLR, and ZMMMR)
 
@@ -86,11 +86,6 @@ Student number: 152455327
         $ awk -f transpose.awk teosinte_genotypes.txt > transposed_teosinte_genotypes.txt
 
 ## 3.	Sort files
-
-        $ sort -k1,1 -c cut_snp_position.txt | echo $?
-        0
-
-#### (data are not sorted)
 
 
         $ sort -k1,1 cut_snp_position.txt > sorted_cut_snp_position.txt
