@@ -14,9 +14,9 @@ Student number: 152455327
 
 ## 2.	Clone this repository to my computer.
 
-$ git clone https://github.com/jincyliao/UNIX-Assignment
+        $ git clone https://github.com/jincyliao/UNIX-Assignment
 
-3.	Copy the three files to this new repository
+## 3.	Copy the three files to this new repository
 
 $ cd BCB546X-Spring2017/UNIX_Assignment/
 
