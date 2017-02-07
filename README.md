@@ -8,11 +8,11 @@ Student name: Ching-Yi Liao
 Student number: 152455327
 
 
-I.	Git repository
+# I.	Git repository
 
-1.	Create a new repository (UNIX-Assignment) on my GitHub with a README.md file.
+## 1.	Create a new repository (UNIX-Assignment) on my GitHub with a README.md file.
 
-2.	Clone this repository to my computer.
+## 2.	Clone this repository to my computer.
 
 $ git clone https://github.com/jincyliao/UNIX-Assignment
 
@@ -27,19 +27,19 @@ $ cp snp_position.txt ~/UNIX-Assignment/
 $ cp transpose.awk ~/UNIX-Assignment/
 
 
-II.	Data inspection
+# II.	Data inspection
 
 $ cd /c/Users/user/UNIX-Assignment
 
 
-File size
+## File size
 
 $ du -h fang_et_al_genotypes.txt snp_position.txt
 11M     fang_et_al_genotypes.txt
 84K     snp_position.txt
 
 
-Number of lines, words, and bytes, etc.
+## Number of lines, words, and bytes, etc.
 
 $ wc fang_et_al_genotypes.txt snp_position.txt
     2783  2744038 11054722 fang_et_al_genotypes.txt
@@ -52,7 +52,7 @@ $ wc fang_et_al_genotypes.txt snp_position.txt
 wc –c (print the byte counts), wc –m (print character counts), wc –l (print newline counts), wc –w (print words counts),
 
 
-Numbers of columns
+## Numbers of columns
 
 $ awk -F "\t" '{print NF; exit}' fang_et_al_genotypes.txt
 986
@@ -60,39 +60,39 @@ $ awk -F "\t" '{print NF; exit}' fang_et_al_genotypes.txt
 $ awk -F "\t" '{print NF; exit}' snp_position.txt
 15
 
-III.	Data processing
+# III.	Data processing
 
-1.	Data extraction and cut unnecessary columns
+## 1.	Data extraction and cut unnecessary columns
 
-Genetype data
+### Genetype data
 
-For maize (Group = ZMMIL, ZMMLR, and ZMMMR)
+#### For maize (Group = ZMMIL, ZMMLR, and ZMMMR)
 
 $ grep -E "(Group|ZMMIL|ZMMLR|ZMMMR)" fang_et_al_genotypes.txt | cut -f 4-986 > maize_genotypes.txt
 
 
-For teosinte (Group = ZMPBA, ZMPIL, and ZMPJA)
+#### For teosinte (Group = ZMPBA, ZMPIL, and ZMPJA)
 
 $ grep -E "(Group|ZMPBA|ZMPIL|ZMPJA)" fang_et_al_genotypes.txt | cut -f 4-986 > teosinte_genotypes.txt
 
 
-SNP description data
+### SNP description data
 
 $ grep -v "^#" snp_position.txt | cut -f 1,3,4 > cut_snp_position.txt
 
-2.	Transpose the data
+## 2.	Transpose the data
 
 $ awk -f transpose.awk maize_genotypes.txt > transposed_maize_genotypes.txt
 
 $ awk -f transpose.awk teosinte_genotypes.txt > transposed_teosinte_genotypes.txt
 
-3.	Sort files
+## 3.	Sort files
 
 $ sort -k1,1 -c cut_snp_position.txt | echo $?
 0
 
 sort: cut_snp_position.txt:2: disorder: abph1.20        2       27403404
-(data are not sorted)
+#### (data are not sorted)
 
 
 $ sort -k1,1 cut_snp_position.txt > sorted_cut_snp_position.txt
@@ -110,15 +110,15 @@ $ sort -k1,1 -c sorted_transposed_maize_genotypes.txt | echo $?
 
 $ sort -k1,1 -c sorted_transposed_teosinte_genotypes.txt | echo $?
 0
-(data are sorted)
+#### (data are sorted)
 
-4.	Join files
+## 4.	Join files
 
 $ join -t $'\t' -1 1 -2 1 sorted_cut_snp_position.txt sorted_transposed_maize_genotypes.txt > joined_maize.txt    
 
 $ join -t $'\t' -1 1 -2 1 sorted_cut_snp_position.txt sorted_transposed_teosinte_genotypes.txt > joined_teosinte.txt
 
-5.	Isolate each chromosome 
+## 5.	Isolate each chromosome 
 
 $ awk '$2==1' joined_maize.txt | sort -k3,3g > maize_chr1.txt
 (Repeat to get other chromosomes and teosinte data)
