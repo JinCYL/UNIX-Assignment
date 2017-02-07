@@ -42,13 +42,13 @@ Student number: 152455327
 ## Number of lines, words, and bytes, etc.
 
         $ wc fang_et_al_genotypes.txt snp_position.txt
-                2783  2744038 11054722 fang_et_al_genotypes.txt
-                 984    13198    83747 snp_position.txt
-                3767  2757236 11138469 total
+              2783  2744038 11054722 fang_et_al_genotypes.txt
+               984    13198    83747 snp_position.txt
+              3767  2757236 11138469 total
 
 (print line, word, and byte counts) or
 
-wc –c (print the byte counts), wc –m (print character counts), wc –l (print newline counts), wc –w (print words counts),
+*wc –c* (print the byte counts), wc –m (print character counts), wc –l (print newline counts), wc –w (print words counts),
 
 
 ## Numbers of columns
