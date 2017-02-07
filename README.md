@@ -46,9 +46,9 @@ Student number: 152455327
                984    13198    83747 snp_position.txt
               3767  2757236 11138469 total
 
-(print line, word, and byte counts) or
+(print *line, word, and byte counts*) or
 
-*wc –c* (print the byte counts), wc –m (print character counts), wc –l (print newline counts), wc –w (print words counts),
+**wc –c** (print the *byte counts*), **wc –m** (print *character counts*), **wc –l** (print *newline counts*), **wc –w** (print *words counts*),
 
 
 ## Numbers of columns
